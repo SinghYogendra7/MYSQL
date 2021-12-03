@@ -1,0 +1,116 @@
+1. What is Python?
+Python is a high-level, interpreted, general-purpose programming language. Being a general-purpose language, it can be used to build almost any type of application with the right tools/libraries. Additionally, python supports objects, modules, threads, exception-handling, and automatic memory management which help in modeling real-world problems and building applications to solve these problems.
+
+2. What is an Interpreted language?
+An Interpreted language executes its statements line by line. Languages such as Python, Javascript, R, PHP, and Ruby are prime examples of Interpreted languages. Programs written in an interpreted language runs directly from the source code, with no intermediary compilation step.
+
+3. What is PEP 8 and why is it important?
+PEP stands for Python Enhancement Proposal. A PEP is an official design document providing information to the Python community, or describing a new feature for Python or its processes. PEP 8 is especially important since it documents the style guidelines for Python Code. Apparently contributing to the Python open-source community requires you to follow these style guidelines sincerely and strictly.
+
+4. What are lists and tuples? What is the key difference between the two?
+Lists and Tuples are both sequence data types that can store a collection of objects in Python. The objects stored in both sequences can have different data types. Lists are represented with square brackets ['sara', 6, 0.19], while tuples are represented with parantheses ('ansh', 5, 0.97). But what is the real difference between the two? The key difference between the two is that while lists are mutable, tuples on the other hand are immutable objects. This means that lists can be modified, appended or sliced on the go but tuples remain constant and cannot be modified in any manner.
+
+5. What are the common built-in data types in Python?
+There are several built-in data types in Python. Although, Python doesn't require data types to be defined explicitly during variable declarations type errors are likely to occur if the knowledge of data types and their compatibility with each other are neglected. Python provides type() and isinstance() functions to check the type of these variables.
+
+Binary Types: memoryview, bytearray, bytes.
+Boolean Type: bool.
+Set Types: frozenset, set.
+Mapping Type: dict.
+Sequence Types: range, tuple, list.
+Numeric Types: complex, float, int.
+Text Type: str.
+6. What is __init__?
+__init__ is a contructor method in Python and is automatically called to allocate memory when a new object/instance is created. All classes have a __init__ method associated with them. It helps in distinguishing methods and attributes of a class from local variables.
+
+# class definition
+class Student:
+   def __init__(self, fname, lname, age, section):
+       self.firstname = fname
+       self.lastname = lname
+       self.age = age
+       self.section = section
+# creating a new object
+stu1 = Student("Sara", "Ansh", 22, "A2")
+7. What is the difference between Python Arrays and lists?
+Arrays in python can only contain elements of same data types i.e., data type of array should be homogeneous. It is a thin wrapper around C language arrays and consumes far less memory than lists.
+Lists in python can contain elements of different data types i.e., data type of lists can be heterogeneous. It has the disadvantage of consuming large memory.
+8. How is memory managed in Python?
+Memory management in Python is handled by the Python Memory Manager. The memory allocated by the manager is in form of a private heap space dedicated to Python. All Python objects are stored in this heap and being private, it is inaccessible to the programmer. Though, python does provide some core API functions to work upon the private heap space.
+Additionally, Python has an in-built garbage collection to recycle the unused memory for the private heap space.
+9. What is a method?
+A method is a function on some object x that you normally call as x.name(arguments...). Methods are defined as functions inside the class definition:
+
+class C: 
+    def meth (self, arg): 
+        return arg*2 + self.attribute
+10. What are decorators in Python?
+Decorators in Python are essentially functions that add functionality to an existing function in Python without changing the structure of the function itself. They are represented the @decorator_name in Python and are called in a bottom-up fashion.
+
+# decorator function to convert to lowercase
+def lowercase_decorator(function):
+   def wrapper():
+       func = function()
+       string_lowercase = func.lower()
+       return string_lowercase
+   return wrapper
+# decorator function to split words
+def splitter_decorator(function):
+   def wrapper():
+       func = function()
+       string_split = func.split()
+       return string_split
+   return wrapper
+@splitter_decorator # this is executed next
+@lowercase_decorator # this is executed first
+def hello():
+   return 'Hello World'
+hello()   # output => [ 'hello' , 'world' ]
+['hello', 'world']
+11. What is the difference between .py and .pyc files?
+.py files contain the source code of a program. Whereas, .pyc file contains the bytecode of your program. We get bytecode after compilation of .py file (source code). .pyc files are not created for all the files that you run. It is only created for the files that you import.
+Before executing a python program python interpreter checks for the compiled files. If the file is present, the virtual machine executes it. If not found, it checks for .py file. If found, compiles it to .pyc file and then python virtual machine executes it.
+Having .pyc file saves you the compilation time.
+12. Explain split() and join() functions in Python?
+You can use split() function to split a string based on a delimiter to a list of strings.
+You can use join() function to join a list of strings based on a delimiter to give a single string.
+string = "This is a string."
+string_list = string.split(' ') #delimiter is ‘space’ character or ‘ ‘
+print(string_list) #output: ['This', 'is', 'a', 'string.']
+print(' '.join(string_list)) #output: This is a string.
+['This', 'is', 'a', 'string.']
+This is a string.
+13. How does inheritance work in python? Explain it with an example.
+Inheritance gives the power to a class to access all attributes and methods of another class. It aids in code reusability and helps the developer to maintain applications without redundant code. The class inheriting from another class is a child class or also called a derived class. The class from which a child class derives the members are called parent class or superclass.
+
+14. Differentiate between new and override modifiers.
+The new modifier is used to instruct the compiler to use the new implementation and not the base class function. The Override modifier is useful for overriding a base class function inside the child class.
+
+15. What are lambda functions?
+Lambda functions are generally inline, anonymous functions represented by a single expression. They are used for creating function objects during runtime. They can accept any number of parameters. They are usually used where functions are required only for a short period. They can be used as:
+
+mul_func = lambda x,y : x*y
+print(mul_func(6, 4))
+24
+16. What Are The Types of Objects Support in Python Language?
+Python supports are two types are of objects.They are, Immutable and Mutable built-in types.
+
+17. How do you create your own package in Python?
+It overrides the any initialization from an inherited class and is called when the class is instantiated.
+
+We know that a package may contain sub-packages and modules. A module is nothing but Python code. To create a package of our own, we create a directory and create a file __init__.py in it. We leave it empty. Then, in that package, we create a module(s) with whatever code we want. For a detailed explanation with pictures, refer to Python Packages.
+
+18. What is recursion?
+When a function makes a call to itself, it is termed recursion. But then, in order for it to avoid forming an infinite loop, we must have a base condition. Let's take an example.
+
+def facto(n):
+    if n==1: return 1   
+    return n*facto(n-1)
+
+facto(4)
+24
+19. What is the structure of a while loop?
+while : … The ellipsis represents a code block to be executed. until the condition becomes false. The condition is an expression that is considered true unless it evaluates to o, null or false.
+
+20. What is the structure of a for loop?
+for in : … The ellipsis represents a code block to be executed, once for each item in the sequence. Within the block the item is available as the current item from the entire list.
